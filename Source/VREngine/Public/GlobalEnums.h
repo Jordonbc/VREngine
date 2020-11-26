@@ -23,14 +23,6 @@ enum class EMotionControllerType : uint8
 };
 
 UENUM(BlueprintType)
-enum class EFireMode : uint8
-{
-	SingleShot 	UMETA(DisplayName = "SingleShot"),
-	FullAuto 	UMETA(DisplayName = "FullAuto"),
-	DoubleAction	UMETA(DisplayName = "Double Action")
-};
-
-UENUM(BlueprintType)
 enum class EMoveMode : uint8
 {
 	Teleport 	UMETA(DisplayName = "Teleport"),
@@ -66,15 +58,3 @@ enum class EControllerPhysicsType : uint8
 	Physics 	UMETA(DisplayName = "Physics"),
 	NoCollision 	UMETA(DisplayName = "No Collision"),
 };
-
-UENUM(BlueprintType)
-enum class EAttachmentPosition : uint8
-{
-	Sight 	UMETA(DisplayName = "Sight"),
-	Ammo 	UMETA(DisplayName = "Ammo"),
-	Side	UMETA(DisplayName = "Side"),
-	Front	UMETA(DisplayName = "Front"),
-	Bottom	UMETA(DisplayName = "Bottom"),
-	Other	UMETA(DisplayName = "Other")
-};
-

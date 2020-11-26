@@ -29,24 +29,3 @@ struct FNearestActorRet
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float DistanceToActor = 10000.0f;
 };
-
-USTRUCT(BlueprintType)
-struct VRENGINE_API FAttachment
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		EAttachmentPosition Position;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class ABasicAttachment* AttachmentActor;
-
-	bool operator == (const FAttachment& other) const
-	{
-		return (AttachmentActor == other.AttachmentActor && Position == other.Position);
-	}
-	
-	FAttachment() {};
-	FAttachment(ABasicAttachment* A, EAttachmentPosition Pos) { AttachmentActor = A; Position = Pos; };
-	FAttachment(ABasicAttachment* A) { AttachmentActor = A;};
-};
