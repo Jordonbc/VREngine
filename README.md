@@ -8,10 +8,10 @@ VREngine was developed as a side project for one of my games I made at college. 
 
 ## Features
 
-- Item Pickup and Drop ![](Resources/Pickup.gif)
-- **Full body rig (IK)** ![](Resources/BodyTracking.gif)
-- **Fully Customisable** ![](Resources/Options.jpg)
-- **Full Item Physics** ![](Resources/Collision.gif)
+- Item Pickup and Drop <p align="center"><img src=Resources/Pickup.gif /></p>
+- **Full body rig (IK)** <p align="center"><img src=Resources/BodyTracking.gif /></p>
+- **Fully Customisable** <p align="center"><img src=Resources/Options.jpg /></p>
+- **Full Item Physics** <p align="center"><img src=Resources/Collision.gif /></p>
 
 ## Code Style
 
