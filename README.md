@@ -50,6 +50,8 @@ Example projects can be found in the example folder. Just make sure you copy the
 
 ## VREngine Plugins
 
+VREngine is setup in a way that allows users to make plugins that be used the extend the functionality of VREngine.
+
 - [VR Guns](https://github.com/Jordonbc/VREngineGuns)
 
 ## License
