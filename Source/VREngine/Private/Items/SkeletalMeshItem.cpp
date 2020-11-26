@@ -12,7 +12,7 @@ ASkeletalMeshItem::ASkeletalMeshItem()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	static ConstructorHelpers::FObjectFinder<USkeletalMesh>DefaultSkeletalMeshObject(TEXT("SkeletalMesh'/Game/Meshes/Weapons/Ranged/Pistols/FN_Five-Seven/Pistol.Pistol'"));
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh>DefaultSkeletalMeshObject(TEXT("SkeletalMesh'/VREngine/Meshes/FN_Five-Seven/Pistol.Pistol'"));
 
 	USkeletalMeshComponent* RawSkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MainMesh")); //Creates a skeletal mesh component
 	MainMesh = (UPrimitiveComponent*)RawSkeletalMeshComponent;
