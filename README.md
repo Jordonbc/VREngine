@@ -44,8 +44,7 @@ You can use the Wiki to find information about all the functions.
 
 ## Example Project
 
-Example projects can be found [here](#). Just make sure you copy the Plugin in the the Plugins folder before opening.
-
+An example project for Unreal Engine 4.24 can be found [here](https://drive.google.com/file/d/1Q7Wmv_tRNbsVIsQVHaun2AzgNQj1ar8L/view?usp=sharing).
 >**Example Project coming soon**
 
 ## Contribute
@@ -55,7 +54,6 @@ Example projects can be found [here](#). Just make sure you copy the Plugin in t
 VREngine is setup in a way that allows users to make plugins that can be used the extend the functionality of VREngine.
 
 - [VR Guns](https://github.com/Jordonbc/VREngineGuns)
-
 ## License
 
 This project is licensed under the [GNU General Public License v3.0](https://github.com/Jordonbc/VREngine/blob/master/license)
