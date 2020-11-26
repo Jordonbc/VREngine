@@ -44,7 +44,7 @@ You can use the Wiki to find information about all the functions.
 
 ## Example Project
 
-Example projects can be found [here](). Just make sure you copy the Plugin in the the Plugins folder before opening.
+Example projects can be found [here](.). Just make sure you copy the Plugin in the the Plugins folder before opening.
 
 >**Example Project coming soon**
 
