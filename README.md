@@ -39,6 +39,8 @@ Example projects can be found in the example folder. Just make sure you copy the
 
 ## VREngine Plugins
 
+[VR Guns](https://github.com/Jordonbc/VREngineGuns)
+
 ## Credits
 
 ## License
