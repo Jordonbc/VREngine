@@ -6,6 +6,13 @@ VREngine is a Unreal Engine plugin that lets you easilly create VR projects. It 
 
 VREngine was developed as a side project for one of my games I made at college. The main idea was to create a plugin containing all the essential tools for me to create more VR games later on without needing to code everything again.
 
+## Features
+
+- Item Pickup and Drop ![](Resources/Pickup.gif)
+- **Full body rig (IK)** ![](Resources/BodyTracking.gif)
+- **Fully Customisable** ![](Resources/Options.jpg)
+- **Full Item Physics** ![](Resources/Collision.gif)
+
 ## Code Style
 
 ## Tech/Frameworks used
