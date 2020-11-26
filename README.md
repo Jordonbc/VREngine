@@ -53,3 +53,7 @@ Example projects can be found in the example folder. Just make sure you copy the
 - [VR Guns](https://github.com/Jordonbc/VREngineGuns)
 
 ## License
+
+This project is licensed under the [GNU General Public License v3.0](https://github.com/Jordonbc/VREngine/blob/master/license)
+
+GNU General Public License v3.0 © Jordon Brooks
