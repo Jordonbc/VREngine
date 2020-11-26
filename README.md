@@ -30,13 +30,13 @@ Built with:
 
 >**VREngine currently only has support for Unreal Engine 4.24** but once I have fully migrated the files from my game into the plugin it will be kept up to date with the latest unreal version.
 
-### Building from Source
-
-If you build VREngine from souce you must place this repository in a folder called Plugins in the base directory of your game where the .uproject lives e.g. mygame/Plugins/VREngine
-
 ### Using precompiled binaries
 
 Once you download the zip file extract it and either place the extracted folder in the Plguins folder of your game or in the engine plugin folder for global use.
+
+### Building from Source
+
+If you build VREngine from souce you must place this repository in a folder called Plugins in the base directory of your game where the .uproject lives e.g. mygame/Plugins/VREngine
 
 ## API Reference
 
@@ -44,12 +44,20 @@ You can use the Wiki to find information about all the functions.
 
 ## Example Project
 
-Example projects can be found in the example folder. Just make sure you copy the Plugin in the the Plugins folder before opening.
+Example projects can be found [here](#). Just make sure you copy the Plugin in the the Plugins folder before opening.
+
+>**Example Project coming soon**
 
 ## Contribute
 
 ## VREngine Plugins
 
+VREngine is setup in a way that allows users to make plugins that can be used the extend the functionality of VREngine.
+
 - [VR Guns](https://github.com/Jordonbc/VREngineGuns)
 
 ## License
+
+This project is licensed under the [GNU General Public License v3.0](https://github.com/Jordonbc/VREngine/blob/master/license)
+
+GNU General Public License v3.0 © Jordon Brooks
