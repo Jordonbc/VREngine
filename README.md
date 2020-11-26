@@ -13,7 +13,11 @@ VREngine was developed as a side project for one of my games I made at college. 
 - **Fully Customisable** <p align="center"><img src=Resources/Options.jpg /></p>
 - **Full Item Physics** <p align="center"><img src=Resources/Collision.gif /></p>
 
-## Code Style
+## Code
+
+Everything in the plugin is written in C++, no blueprints here.
+
+You can use blueprints if you dont like coding in C++ the functions will be listed on the wiki.
 
 ## Tech/Frameworks used
 
