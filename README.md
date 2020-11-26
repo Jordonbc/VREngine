@@ -1,8 +1,4 @@
-# VREngine
-
-<p align="center">
-  <img src=Resources/Icon512Dark.png />
-</p>
+# <p align="center"><img src=Resources/Icon512Dark.png /></p>
 
 VREngine is a Unreal Engine plugin that lets you easilly create VR projects. It provides all the necessary ground work so you can focus more on the game rather than creating basic VR things like movement and item pickup.
 
@@ -43,7 +39,7 @@ Example projects can be found in the example folder. Just make sure you copy the
 
 ## VREngine Plugins
 
-[VR Guns](https://github.com/Jordonbc/VREngineGuns)
+- [VR Guns](https://github.com/Jordonbc/VREngineGuns)
 
 ## Credits
 
