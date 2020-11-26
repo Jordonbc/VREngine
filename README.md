@@ -19,6 +19,8 @@ Built with:
 
 ## Installation
 
+>**VREngine currently only has support for Unreal Engine 4.24** but once I have fully migrated the files from my game in to the plugin it will be kept up to date with the latest unreal version.
+
 ### Building from Source
 
 If you build VREngine from souce you must place this repository in a folder called Plugins in the base directory of your game where the .uproject lives e.g. mygame/Plugins/VREngine
