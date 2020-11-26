@@ -12,7 +12,7 @@ AStaticMeshItem::AStaticMeshItem()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>DefaultStaticMeshObject(TEXT("StaticMesh'/Game/Geometry/Meshes/1mCube.1mCube'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>DefaultStaticMeshObject(TEXT("StaticMesh'/VREngine/Meshes/1mCube.1mCube'"));
 
 	RawStaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MainMesh")); //Creates a static mesh component
 	MainMesh = (UPrimitiveComponent*)RawStaticMeshComponent;

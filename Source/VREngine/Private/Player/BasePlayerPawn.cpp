@@ -66,10 +66,10 @@ ABasePlayerPawn::ABasePlayerPawn()
 
 
 
-	static ConstructorHelpers::FObjectFinder<USkeletalMesh>BodyObject(TEXT("SkeletalMesh'/Game/Meshes/Characters/testCharacter/SK_Mannequin_Headless.SK_Mannequin_Headless'"));
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh>BodyObject(TEXT("SkeletalMesh'/VREngine/Meshes/UnrealCharacter/SK_Mannequin_Headless.SK_Mannequin_Headless'"));
 	BodyComp->SetSkeletalMesh(BodyObject.Object);
 
-	static ConstructorHelpers::FObjectFinder<USkeletalMesh>HeadObject(TEXT("SkeletalMesh'/Game/Meshes/Characters/testCharacter/Head/SK_Mannequin_Head.SK_Mannequin_Head'"));
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh>HeadObject(TEXT("SkeletalMesh'/VREngine/Meshes/UnrealCharacter/Head/SK_Mannequin_Head.SK_Mannequin_Head'"));
 	HeadComp->SetSkeletalMesh(HeadObject.Object);
 	HeadComp->SetRelativeLocationAndRotation(FVector(0.0f, -2.0f, 0.0f), FRotator(0.0f, -90.0f, 0.0f));
 
