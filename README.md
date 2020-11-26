@@ -28,7 +28,7 @@ Built with:
 
 ## Installation
 
->**VREngine currently only has support for Unreal Engine 4.24** but once I have fully migrated the files from my game in to the plugin it will be kept up to date with the latest unreal version.
+>**VREngine currently only has support for Unreal Engine 4.24** but once I have fully migrated the files from my game into the plugin it will be kept up to date with the latest unreal version.
 
 ### Building from Source
 
@@ -51,7 +51,5 @@ Example projects can be found in the example folder. Just make sure you copy the
 ## VREngine Plugins
 
 - [VR Guns](https://github.com/Jordonbc/VREngineGuns)
-
-## Credits
 
 ## License
