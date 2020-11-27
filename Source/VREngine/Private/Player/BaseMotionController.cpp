@@ -106,12 +106,12 @@ ABaseMotionController::ABaseMotionController()
 	TeleportCylinderComp->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 	TeleportCylinderComp->SetMobility(EComponentMobility::Movable);
 
-	static ConstructorHelpers::FObjectFinder<UMaterialInterface>SplineMaterialObj(TEXT("Material'/Game/GlobalMaterials/VR/M_SplineArcMat.M_SplineArcMat'"));
+	static ConstructorHelpers::FObjectFinder<UMaterialInterface>SplineMaterialObj(TEXT("Material'/VREngine/Materials/VR/M_SplineArcMat.M_SplineArcMat'"));
 	SplineMaterial = SplineMaterialObj.Object;
-	
+
 
 	RingComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Ring"));
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>RingObj(TEXT("StaticMesh'/Game/VirtualReality/Meshes/SM_FatCylinder.SM_FatCylinder'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>RingObj(TEXT("StaticMesh'/VREngine/Meshes/SM_FatCylinder.SM_FatCylinder'"));
 	RingComp->SetupAttachment(TeleportCylinderComp);
 	RingComp->SetStaticMesh(RingObj.Object);
 	RingComp->SetRelativeScale3D(FVector(0.5f, 0.5f, 0.15f));
@@ -119,7 +119,7 @@ ABaseMotionController::ABaseMotionController()
 	RingComp->SetMobility(EComponentMobility::Movable);
 
 	ArrowComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Arrow"));
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>ArrowObj(TEXT("StaticMesh'/Game/VirtualReality/Meshes/BeaconDirection.BeaconDirection'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>ArrowObj(TEXT("StaticMesh'/VREngine/Meshes/BeaconDirection.BeaconDirection'"));
 	ArrowComp->SetupAttachment(TeleportCylinderComp);
 	ArrowComp->SetStaticMesh(ArrowObj.Object);
 	ArrowComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
@@ -127,7 +127,7 @@ ABaseMotionController::ABaseMotionController()
 	ArrowComp->SetMobility(EComponentMobility::Movable);
 
 	RoomScaleMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("RoomScaleMesh"));
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>RoomScaleMeshObj(TEXT("StaticMesh'/Game/VirtualReality/Meshes/1x1_cube.1x1_cube'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>RoomScaleMeshObj(TEXT("StaticMesh'/VREngine/Meshes/1x1_cube.1x1_cube'"));
 	RoomScaleMeshComp->SetupAttachment(ArrowComp);
 	RoomScaleMeshComp->SetStaticMesh(RoomScaleMeshObj.Object);
 	RoomScaleMeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
@@ -156,10 +156,10 @@ ABaseMotionController::ABaseMotionController()
 	ArcDirectionComp->SetMobility(EComponentMobility::Movable);
 
 
-	static ConstructorHelpers::FObjectFinder<USkeletalMesh>HandMeshObject(TEXT("SkeletalMesh'/Game/VirtualReality/Mannequin/Character/Mesh/MannequinHand_Right.MannequinHand_Right'"));
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh>HandMeshObject(TEXT("SkeletalMesh'/VREngine/Meshes/Mannequin/Character/Mesh/MannequinHand_Right.MannequinHand_Right'"));
 	USkeletalMesh* HandMesh = HandMeshObject.Object;
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>SplineMeshObject(TEXT("StaticMesh'/Game/VirtualReality/Meshes/BeamMesh.BeamMesh'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>SplineMeshObject(TEXT("StaticMesh'/VREngine/Meshes/BeamMesh.BeamMesh'"));
 	SplineMesh = SplineMeshObject.Object;
 
 	HandMeshComponent->SetAnimationMode(EAnimationMode::AnimationBlueprint);
@@ -211,9 +211,9 @@ void ABaseMotionController::GrabActor()
 	{
 		UE_LOG(MotionController, Verbose, TEXT("Grabbing AIR"));
 	}
-	
 
-	
+
+
 }
 
 void ABaseMotionController::ReleaseActor()
@@ -320,7 +320,7 @@ void ABaseMotionController::SetMCSource()
 	else MotionControllerComponent->SetTrackingMotionSource(TEXT("Right"));
 }
 
-void ABaseMotionController::GetTeleportDestination(FVector &Location, FRotator &Rotation)
+void ABaseMotionController::GetTeleportDestination(FVector& Location, FRotator& Rotation)
 {
 	Location = TeleportCylinderComp->GetComponentLocation();
 
@@ -355,7 +355,7 @@ void ABaseMotionController::BeginPlay()
 		ItemRotationComponent->SetRelativeScale3D(InvertVec);
 		HandMeshComponent->SetRelativeScale3D(InvertVec);
 		GhostHandMeshComponent->SetRelativeScale3D(InvertVec);
-		GrabSphereComponent->AddWorldRotation(FRotator(-90, 0 , 180));
+		GrabSphereComponent->AddWorldRotation(FRotator(-90, 0, 180));
 		break;
 
 	default:
@@ -755,7 +755,7 @@ bool ABaseMotionController::TraceTeleportDest(TArray<FVector>& TracePoints, FVec
 		TracePoints.Add(Result.PathData[i].Location);
 	}
 
-	
+
 	UNavigationSystemV1* NavSys = Cast<UNavigationSystemV1>(GetWorld()->GetNavigationSystem());
 	ANavigationData* NavData = NavSys->GetDefaultNavDataInstance(FNavigationSystem::DontCreate);
 
