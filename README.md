@@ -45,7 +45,6 @@ You can use the Wiki to find information about all the functions.
 ## Example Project
 
 An example project for Unreal Engine 4.24 can be found [here](https://drive.google.com/file/d/1Q7Wmv_tRNbsVIsQVHaun2AzgNQj1ar8L/view?usp=sharing).
->**Example Project coming soon**
 
 ## Contribute
 
