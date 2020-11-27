@@ -28,8 +28,6 @@ Built with:
 
 ## Installation
 
->**VREngine currently only has support for Unreal Engine 4.24** but once I have fully migrated the files from my game into the plugin it will be kept up to date with the latest unreal version.
-
 ### Using precompiled binaries
 
 Once you download the zip file extract it and either place the extracted folder in the Plguins folder of your game or in the engine plugin folder for global use.
