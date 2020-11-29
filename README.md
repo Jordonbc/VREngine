@@ -28,7 +28,7 @@ Built with:
 
 ## Installation
 
-### Using precompiled binaries
+### Using precompiled dlls
 
 Once you download the zip file extract it and either place the extracted folder in the Plguins folder of your game or in the engine plugin folder for global use.
 
@@ -51,6 +51,11 @@ An example project for Unreal Engine 4.24 can be found [here](https://drive.goog
 VREngine is setup in a way that allows users to make plugins that can be used the extend the functionality of VREngine.
 
 - [VR Guns](https://github.com/Jordonbc/VREngineGuns)
+
+## Disclaimer
+
+This plugin contains content used from the 3rd person character template Epic Games provides e.g. Mannequin. This is to be used as a placeholder and testing purposes and should not be used in production as stated in the [marketplace guidelines under 2.1.e](https://www.unrealengine.com/en-US/marketplace-guidelines#21e).
+
 ## License
 
 This project is licensed under the [GNU General Public License v3.0](https://github.com/Jordonbc/VREngine/blob/master/license)
