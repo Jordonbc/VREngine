@@ -34,8 +34,16 @@ public class VREngine : ModuleRules
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
-			
-		
+
+		//if (Target.bBuildEditor)
+		//{
+		//	PublicDependencyModuleNames.AddRange(new string[]
+		//	{
+		//		"UnrealEd",
+		//	});
+		//}
+
+
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
@@ -44,8 +52,7 @@ public class VREngine : ModuleRules
 				"Slate",
 				"SlateCore",
 				"HeadMountedDisplay",
-				"SteamvR",
-				"UnrealEd"
+				"SteamVR"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

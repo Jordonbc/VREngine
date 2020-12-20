@@ -546,7 +546,7 @@ void ABaseMotionController::UpdateArcSpline(bool FoundValidLocation, TArray<FVec
 
 	ArcSplineComp->SetSplinePointType(SplinePoints.Num(), ESplinePointType::CurveClamped, true);
 
-	for (size_t i = 0; i < (ArcSplineComp->GetNumberOfSplinePoints() - (int32)2); i++)
+	for (int i = 0; i < (ArcSplineComp->GetNumberOfSplinePoints() - (int32)2); i++)
 	{
 		USplineMeshComponent* smc = NewObject<USplineMeshComponent>(this);
 		smc->SetStaticMesh(SplineMesh);
@@ -750,7 +750,7 @@ bool ABaseMotionController::TraceTeleportDest(TArray<FVector>& TracePoints, FVec
 
 	bool Success1 = UGameplayStatics::PredictProjectilePath(GetWorld(), Params, Result);
 
-	for (size_t i = 0; i < Result.PathData.Num(); i++)
+	for (int i = 0; i < Result.PathData.Num(); i++)
 	{
 		TracePoints.Add(Result.PathData[i].Location);
 	}
