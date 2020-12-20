@@ -35,16 +35,16 @@ public class VREngine : ModuleRules
 			}
 			);
 
-		//if (Target.bBuildEditor)
-		//{
-		//	PublicDependencyModuleNames.AddRange(new string[]
-		//	{
-		//		"UnrealEd",
-		//	});
-		//}
+        if (Target.bBuildEditor)
+        {
+            PublicDependencyModuleNames.AddRange(new string[]
+            {
+                "UnrealEd",
+            });
+        }
 
 
-		PrivateDependencyModuleNames.AddRange(
+        PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
 				"CoreUObject",

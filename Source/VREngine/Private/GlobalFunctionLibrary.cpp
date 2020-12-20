@@ -7,9 +7,9 @@
 //#include "Log.h"
 #include "IMotionController.h"
 
-//#if WITH_EDITOR
-//#include "UnrealEd.h"
-//#endif
+#if WITH_EDITOR
+#include "UnrealEd.h"
+#endif
 
 FName UGlobalFunctionLibrary::GetMotionControllerDeviceTypeName(UMotionControllerComponent* MotionControllerComponent)
 {
@@ -19,20 +19,12 @@ FName UGlobalFunctionLibrary::GetMotionControllerDeviceTypeName(UMotionControlle
 
 bool UGlobalFunctionLibrary::IsEditorSimulating()
 {
-	if (UGameInstance().GetWorld()->WorldType == EWorldType::PIE) return true;
-	else return false;
 
-//#if WITH_EDITOR
-//	/*if (UEditorEngine* editor = CastChecked<UEditorEngine>(GEngine))
-//	{
-//		return editor->PIE
-//	}*/
-//
-//	return (GEditor->bIsSimulatingInEditor || (GEditor->PlayWorld != NULL));
-//
-//#else
-//	return false; // always return false if not using editor
-//#endif
+#if WITH_EDITOR
+	return (GEditor->bIsSimulatingInEditor || (GEditor->PlayWorld != NULL));
+#else
+	return false; // always return false if not using editor
+#endif
 
 }
 
