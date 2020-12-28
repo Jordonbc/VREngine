@@ -58,6 +58,6 @@ This plugin contains content used from the 3rd person character template Epic Ga
 
 ## License
 
-This project is licensed under the [GNU General Public License v3.0](https://github.com/Jordonbc/VREngine/blob/master/license)
+This project is licensed under the [Apache License 2.0](https://github.com/Jordonbc/VREngine/blob/master/license)
 
-GNU General Public License v3.0 © Jordon Brooks
+Apache License 2.0 © Jordon Brooks
