@@ -263,17 +263,17 @@ FNearestActorRet ABaseMotionController::GetActorNearHand()
 {
 	FNearestActorRet NearestActor = FNearestActorRet();
 
-	for (int i = 0; i < OverlappingComponents.Num(); i++)
+	for (UPrimitiveComponent* Component : OverlappingComponents)
 	{
 		// Filter out objects not contained in the target world.
-		if (OverlappingComponents[i]->GetWorld() != GetWorld())
+		if (Component->GetWorld() != GetWorld())
 		{
 			continue;
 		}
 		// Do stuff
-		AActor* Actor = OverlappingComponents[i]->GetOwner();
+		AActor* Actor = Component->GetOwner();
 
-		if (OverlappingComponents[i]->ComponentHasTag(FName("SecondHand")))
+		if (Component->ComponentHasTag(FName("SecondHand")))
 		{
 			if (Actor->GetClass()->ImplementsInterface(UVRDualHands::StaticClass()))
 			{
@@ -281,20 +281,20 @@ FNearestActorRet ABaseMotionController::GetActorNearHand()
 				if (Vect < NearestActor.DistanceToActor)
 				{
 					NearestActor.NearestActor = Actor;
-					NearestActor.InteractedComponent = OverlappingComponents[i];
+					NearestActor.InteractedComponent = Component;
 					NearestActor.DistanceToActor = Vect;
 				}
 			}
 		}
 		else
 		{
-			if (OverlappingComponents[i]->ComponentHasTag(FName("Grip")))
+			if (Component->ComponentHasTag(FName("Grip")))
 			{
 				float Vect = FVector::Distance(Actor->GetActorLocation(), GrabSphereComponent->GetComponentLocation());
 				if (Vect < NearestActor.DistanceToActor)
 				{
 					NearestActor.NearestActor = Actor;
-					NearestActor.InteractedComponent = OverlappingComponents[i];
+					NearestActor.InteractedComponent = Component;
 					NearestActor.DistanceToActor = Vect;
 				}
 			}
@@ -523,9 +523,9 @@ void ABaseMotionController::DisableTeleporter()
 
 void ABaseMotionController::ClearArc()
 {
-	for (size_t i = 0; i < SplineMeshes.Num(); i++)
+	for (USplineMeshComponent* SplineMeshComp : SplineMeshes)
 	{
-		SplineMeshes[i]->DestroyComponent();
+		SplineMeshComp->DestroyComponent();
 	}
 	SplineMeshes.Empty();
 	ArcSplineComp->ClearSplinePoints();
@@ -539,14 +539,14 @@ void ABaseMotionController::UpdateArcSpline(bool FoundValidLocation, TArray<FVec
 		SplinePoints.Add(ArcDirectionComp->GetComponentLocation());
 		SplinePoints.Add(ArcDirectionComp->GetComponentLocation() + (ArcDirectionComp->GetForwardVector() * 20));
 	}
-	for (size_t i = 0; i < SplinePoints.Num(); i++)
+	for (FVector Point : SplinePoints)
 	{
-		ArcSplineComp->AddSplinePoint(SplinePoints[i], ESplineCoordinateSpace::Local, true);
+		ArcSplineComp->AddSplinePoint(Point, ESplineCoordinateSpace::Local, true);
 	}
 
 	ArcSplineComp->SetSplinePointType(SplinePoints.Num(), ESplinePointType::CurveClamped, true);
 
-	for (size_t i = 0; i < (ArcSplineComp->GetNumberOfSplinePoints() - (int32)2); i++)
+	for (int i = 0; i < (ArcSplineComp->GetNumberOfSplinePoints() - (int32)2); i++)
 	{
 		USplineMeshComponent* smc = NewObject<USplineMeshComponent>(this);
 		smc->SetStaticMesh(SplineMesh);
@@ -750,7 +750,7 @@ bool ABaseMotionController::TraceTeleportDest(TArray<FVector>& TracePoints, FVec
 
 	bool Success1 = UGameplayStatics::PredictProjectilePath(GetWorld(), Params, Result);
 
-	for (size_t i = 0; i < Result.PathData.Num(); i++)
+	for (int i = 0; i < Result.PathData.Num(); i++)
 	{
 		TracePoints.Add(Result.PathData[i].Location);
 	}

@@ -348,6 +348,9 @@ bool ABasicItem::SelfHitTest()
 	if (DetectedOverlaps.Contains(MotionControllerBP->GhostHandMeshComponent))
 		DetectedOverlaps.Remove(MotionControllerBP->GhostHandMeshComponent);
 
+	if (DetectedOverlaps.Contains(MotionControllerBP->GrabSphereComponent))
+		DetectedOverlaps.Remove(MotionControllerBP->GrabSphereComponent);
+
 	if (DetectedOverlaps.Num() > 0)
 	{
 		HitTime = GetWorld()->GetTimeSeconds();
@@ -379,7 +382,7 @@ void ABasicItem::HandleMixedPhysics()
 	{
 		if (IsValid(MotionControllerBP))
 		{
-			MotionControllerBP->PhysicsHandler->SetTargetLocationAndRotation(MotionControllerBP->MotionControllerComponent->GetComponentLocation(), MotionControllerBP->MotionControllerComponent->GetComponentRotation());
+			MotionControllerBP->PhysicsHandler->SetTargetLocationAndRotation(MotionControllerBP->GrabSphereComponent->GetComponentLocation(), MotionControllerBP->GrabSphereComponent->GetComponentRotation());
 
 			if (MyComponents.Num() > 0) // Only run if we have at least 1 mesh
 			{
@@ -510,7 +513,7 @@ void ABasicItem::RecieveDamage_Implementation(float DamageAmount, FHitResult Hit
 
 FTransform ABasicItem::GetWorldPickupTransform()
 {
-	FTransform NewTransform = FTransform(MotionControllerBP->MotionControllerComponent->GetComponentTransform());
+	FTransform NewTransform = FTransform(MotionControllerBP->HandMeshComponent->GetComponentTransform());
 	NewTransform.SetLocation(NewTransform.TransformPosition(RelativePickupOffset.GetLocation()));
 	NewTransform.SetRotation(NewTransform.TransformRotation(RelativePickupOffset.GetRotation()));
 

@@ -22,6 +22,7 @@
 #include "GlobalFunctionLibrary.h"
 #include "GameFramework/FloatingPawnMovement.h"
 #include "Components/WidgetComponent.h"
+#include "TimerManager.h"
 
 DEFINE_LOG_CATEGORY_STATIC(Player, All, All)
 
@@ -376,7 +377,7 @@ TArray<AActor*> ABasePlayerPawn::GetAllActorsFromActor(AActor* Actor)
 	TArray<AActor*> LocalActors;
 	LocalActors.Add(Actor);
 
-	for (size_t i = 0; i < LocalActors.Num(); i++)
+	for (int i = 0; i < LocalActors.Num(); i++)
 	{
 		TArray<AActor*> LocalActorArray;
 		LocalActors[i]->GetAttachedActors(LocalActorArray);
