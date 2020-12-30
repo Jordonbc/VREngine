@@ -1,6 +1,7 @@
 name: Create issues from todos
 
 on:
+  workflow_dispatch:
   push:
     branches:
      - master
