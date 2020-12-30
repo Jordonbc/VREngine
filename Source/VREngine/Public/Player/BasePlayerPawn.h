@@ -19,6 +19,7 @@ public:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category="Components")
 		USceneComponent* DefaultSceneRootComp;
 
+	/* Player controller reference, Used instead of having to cast every time I need to get controller settings. */
 	UPROPERTY(BlueprintReadOnly, Category = "PlayerControllerContext")
 	class AVRPlayerController* PlayerController;
 
@@ -90,7 +91,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inverse Kinematics")
 		bool bUseOldTracking = true;
 
-	/* If true the player will not use default button bindings, if false the player will ignore all default bindings to use your own */
+	/* If true the player will not use default button bindings, if false the player will ignore all default bindings to use your own. */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Controller")
 		bool bUseCustomControls = false;
 
@@ -121,7 +122,7 @@ public:
 	/*
 	Check a motion controller to see what type it is.
 	@param MC - The motion controller to check against.
-	@param MCType - Type of controller you want to check for.
+	@param MCType - Type of controller you want to check for e.g. Valve Index or Oculus.
 	@return a bool which indicates if the controller is the specified type.
 	*/
 	UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -185,6 +186,18 @@ public:
 
 	UFUNCTION()
 		void GrabRight_Released();
+
+	UFUNCTION()
+		void ActivateLeft_Input(float Val);
+
+	UFUNCTION()
+		void ActivateRight_Input(float Val);
+
+	UFUNCTION(BlueprintCallable)
+		void ActivateObject(class ABaseMotionController* MC);
+
+	UFUNCTION(BlueprintCallable)
+		void DeactivateObject(class ABaseMotionController* MC);
 
 	/*
 	Get's the trigger value for this specific hand.

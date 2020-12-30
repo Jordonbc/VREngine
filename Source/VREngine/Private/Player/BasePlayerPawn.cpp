@@ -339,6 +339,10 @@ void ABasePlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 		PlayerInputComponent->BindAction("GrabLeft", EInputEvent::IE_Released, this, &ABasePlayerPawn::GrabLeft_Released);
 		PlayerInputComponent->BindAction("GrabRight", EInputEvent::IE_Pressed, this, &ABasePlayerPawn::GrabRight_Pressed);
 		PlayerInputComponent->BindAction("GrabRight", EInputEvent::IE_Released, this, &ABasePlayerPawn::GrabRight_Released);
+
+
+		PlayerInputComponent->BindAxis("ActivateRight", this, &ABasePlayerPawn::ActivateRight_Input);
+		PlayerInputComponent->BindAxis("ActivateLeft", this, &ABasePlayerPawn::ActivateLeft_Input);
 	}
 }
 
@@ -587,6 +591,66 @@ void ABasePlayerPawn::GrabLeft_Released()
 void ABasePlayerPawn::GrabRight_Released()
 {
 	ReleaseObject(RightController);
+}
+
+// TODO: Add ActivateRight and ActivateLeft functions here
+// For some reason I didn't translate the old ActivateLeft and ActivateRight blueprint functions to the plugin thus player cannot activate any objects like firing guns.
+// Should be easy to implement when I get time.
+
+
+// These fire while the trigger is being held and not like a button.
+void ABasePlayerPawn::ActivateLeft_Input(float Val)
+{
+	if (Val <= UGlobalFunctionLibrary::GetPlayerController(GetWorld())->ThumbstickDeadzone)
+	{
+		//DeactivateObject(LeftController);
+	}
+	//ActivateObject(LeftController);
+}
+
+void ABasePlayerPawn::ActivateRight_Input(float Val)
+{
+	if (Val <= UGlobalFunctionLibrary::GetPlayerController(GetWorld())->ThumbstickDeadzone)
+	{
+		//DeactivateObject(RightController);
+	}
+	//ActivateObject(RightController);
+}
+
+void ABasePlayerPawn::ActivateObject(ABaseMotionController* MC)
+{
+	if (IsValid(MC))
+	{
+		if (MC == LeftController || MC == RightController)
+		{
+			if (IsValid(MC->AttachedItem))
+			{
+				if (MC->AttachedItem->GetClass()->ImplementsInterface(UInteractionInterface::StaticClass()))
+				{
+					IInteractionInterface* Interface = Cast<IInteractionInterface>(MC->AttachedItem);
+					Interface->Execute_Activate(MC->AttachedItem);
+				}
+			}
+		}
+	}
+}
+
+void ABasePlayerPawn::DeactivateObject(ABaseMotionController* MC)
+{
+	if (IsValid(MC))
+	{
+		if (MC == LeftController || MC == RightController)
+		{
+			if (IsValid(MC->AttachedItem))
+			{
+				if (MC->AttachedItem->GetClass()->ImplementsInterface(UInteractionInterface::StaticClass()))
+				{
+					IInteractionInterface* Interface = Cast<IInteractionInterface>(MC->AttachedItem);
+					Interface->Execute_Deactivate(MC->AttachedItem);
+				}
+			}
+		}
+	}
 }
 
 float ABasePlayerPawn::GetTriggerValue(ABaseMotionController* MC)
