@@ -593,7 +593,7 @@ void ABasePlayerPawn::GrabRight_Released()
 	ReleaseObject(RightController);
 }
 
-// TODO [$5fed11b8713634000792588b]: Add ActivateRight and ActivateLeft functions here
+// TODO [#9]: Add ActivateRight and ActivateLeft functions here
 // For some reason I didn't translate the old ActivateLeft and ActivateRight blueprint functions to the plugin thus player cannot activate any objects like firing guns.
 // Should be easy to implement when I get time.
 
