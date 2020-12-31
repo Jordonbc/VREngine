@@ -1,6 +1,6 @@
 # <p align="center"><img src=Resources/Icon512Dark.png /></p>
 
-![Create issues from todos](https://github.com/Jordonbc/VREngine/workflows/Create%20issues%20from%20todos/badge.svg) [![GitHub release](https://img.shields.io/github/release/Jordonbc/VREngine.svg)](https://GitHub.com/Jordonbc/VREngine/releases/) [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![made-with-c++](https://img.shields.io/badge/Made%20With-C%2B%2B-Green)](https://img.shields.io/badge/Made%20With-C%2B%2B-Green)
+[![GitHub release](https://img.shields.io/github/release/Jordonbc/VREngine.svg)](https://GitHub.com/Jordonbc/VREngine/releases/) ![Bitbucket open issues](https://img.shields.io/github/issues-raw/Jordonbc/VREngine) [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![made-with-c++](https://img.shields.io/badge/Made%20With-C%2B%2B-Green)](https://img.shields.io/badge/Made%20With-C%2B%2B-Green)
 
 
 
