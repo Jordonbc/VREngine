@@ -143,35 +143,25 @@ protected:
 		void OnComponentHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
 private:
-	UFUNCTION()
-		bool ValidateHit(AActor* Actor);
+	inline bool ValidateHit(AActor* Actor);
 
-	UFUNCTION()
-		void Reset_DoOnce_Physics();
+	inline void Reset_DoOnce_Physics();
 
-	UFUNCTION()
-		void Reset_DoOnce_AttachTo();
+	inline void Reset_DoOnce_AttachTo();
 
-	UFUNCTION()
-		void SwitchToPhysics();
+	inline void SwitchToPhysics();
 
-	UFUNCTION()
-		void SwitchToAttachTo();
+	inline void SwitchToAttachTo();
 
-	UFUNCTION()
-		void DoOnce_ToPhysics();
+	inline void DoOnce_ToPhysics();
 
-	UFUNCTION()
-		void DoOnce_ToAttachTo();
+	inline void DoOnce_ToAttachTo();
 
-	UPROPERTY()
-		bool bDoOnce_Physics = false;
+	bool bDoOnce_Physics = false;
 
-	UPROPERTY()
-		float HitTime = 0;
+	float HitTime = 0;
 
-	UPROPERTY()
-		bool bDoOnce_AttachedTo = true;
+	bool bDoOnce_AttachedTo = true;
 
 	UPROPERTY(VisibleAnywhere, Category = "VR Interfaces")
 		FTransform RelativePickupOffset;
@@ -179,35 +169,25 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "VR Interfaces")
 		float LocationAlpha;
 
-	UFUNCTION()
-		void DoTransform();
+	inline void DoTransform();
 
-	UFUNCTION()
-		bool SelfHitTest();
+	inline bool SelfHitTest();
 
-	UFUNCTION()
-		bool CheckHandDistance(float MaxDistance);
+	inline bool CheckHandDistance(float MaxDistance);
 
-	UFUNCTION()
-		void HandleMixedPhysics();
+	inline void HandleMixedPhysics();
 
-	UFUNCTION()
-		void GrabAttachTo();
+	inline void GrabAttachTo();
 
-	UFUNCTION()
-		void GrabPhysicsHandle();
+	inline void GrabPhysicsHandle();
 
-	UFUNCTION()
-		void GrabMixedMode();
+	inline void GrabMixedMode();
 
-	UFUNCTION()
-		FTransform GetWorldPickupTransform();
+	inline FTransform GetWorldPickupTransform();
 
-	UFUNCTION()
-		FTransform GetRelativePickupTransform();
+	inline FTransform GetRelativePickupTransform();
 
-	UFUNCTION()
-		void OpenDoGates();
+	inline void OpenDoGates();
 
 public:
 	// Called every frame

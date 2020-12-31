@@ -193,10 +193,22 @@ public:
 	UFUNCTION()
 		void ActivateRight_Input(float Val);
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
+		void ActivateLeft_Pressed();
+
+	UFUNCTION()
+		void ActivateRight_Pressed();
+
+	UFUNCTION()
+		void ActivateRight_Released();
+
+	UFUNCTION()
+		void ActivateLeft_Released();
+
+	UFUNCTION()
 		void ActivateObject(class ABaseMotionController* MC);
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
 		void DeactivateObject(class ABaseMotionController* MC);
 
 	/*
@@ -229,28 +241,28 @@ private:
 		/*
 		* Updates actor's position to CapsuleComponent world location.
 		*/
-		void UpdateActorLocation();
+		inline void UpdateActorLocation();
 
 		/*
 		Gets All the actors attached to an actor.
 		@param Actor - Actor to search.
 		*/
 
-		TArray<class AActor*> GetAllActorsFromActor(AActor* Actor);
+		inline TArray<class AActor*> GetAllActorsFromActor(AActor* Actor);
 
-		float TwoPointTracking();
+		inline float TwoPointTracking();
 
-		void IKFootTick();
+		inline void IKFootTick();
 
-		void UpdateHandIK();
+		inline void UpdateHandIK();
 
-		class ABaseMotionController* SpawnMotionController(EControllerHand HandType);
+		inline class ABaseMotionController* SpawnMotionController(EControllerHand HandType);
 
 		/*
 		Function used to specifically return the value of the delay needed to execute inverse kinematic (IK) calculations.
 		@return - Float value containing timing data specifically used for IK calculations.
 		*/
-		float GetInverseKinematicFPS();
+		inline float GetInverseKinematicFPS();
 
 		/*
 		Line traces from a bone on the Z axis to the TraceDistance.
@@ -258,16 +270,16 @@ private:
 		@param TraceDistance - Distance the line trace should go before giving up.
 		@returns Float value containing the distance from the start point a hit was found.
 		*/
-		float IKFootTrace(FName SocketName, float TraceDistance);
+		inline float IKFootTrace(FName SocketName, float TraceDistance);
 
-		void UpdateRoomScalePosition();
+		inline void UpdateRoomScalePosition();
 
-		void UpdateControllerTeleportRotation();
+		inline void UpdateControllerTeleportRotation();
 
 		/*
 		Checks to see if anything is colliding with the character and disables movement.
 		*/
-		void CheckCharacterPosition();
+		inline void CheckCharacterPosition();
 
 		/* Timer function handler for feetIK.*/
 		FTimerHandle IKFootTickFunc;

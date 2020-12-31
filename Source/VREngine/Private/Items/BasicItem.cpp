@@ -98,12 +98,10 @@ void ABasicItem::Activate_Implementation()
 	{
 		if (bActivateOnlyCenter && bAttachToCenter)
 		{
-			UE_LOG(LogTemp, Verbose, TEXT("Activated!"));
 			OnActivate();
 		}
 		else if (!bActivateOnlyCenter)
 		{
-			UE_LOG(LogTemp, Verbose, TEXT("Activated!"));
 			OnActivate();
 		}
 	}

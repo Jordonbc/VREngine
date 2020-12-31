@@ -343,6 +343,11 @@ void ABasePlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 
 		PlayerInputComponent->BindAxis("ActivateRight", this, &ABasePlayerPawn::ActivateRight_Input);
 		PlayerInputComponent->BindAxis("ActivateLeft", this, &ABasePlayerPawn::ActivateLeft_Input);
+
+		PlayerInputComponent->BindAction("ActivateLeft", EInputEvent::IE_Pressed, this, &ABasePlayerPawn::ActivateLeft_Pressed);
+		PlayerInputComponent->BindAction("ActivateLeft", EInputEvent::IE_Released, this, &ABasePlayerPawn::ActivateLeft_Released);
+		PlayerInputComponent->BindAction("ActivateRight", EInputEvent::IE_Pressed, this, &ABasePlayerPawn::ActivateRight_Pressed);
+		PlayerInputComponent->BindAction("ActivateRight", EInputEvent::IE_Released, this, &ABasePlayerPawn::ActivateRight_Released);
 	}
 }
 
@@ -615,6 +620,26 @@ void ABasePlayerPawn::ActivateRight_Input(float Val)
 		//DeactivateObject(RightController);
 	}
 	//ActivateObject(RightController);
+}
+
+void ABasePlayerPawn::ActivateLeft_Pressed()
+{
+	ActivateObject(LeftController);
+}
+
+void ABasePlayerPawn::ActivateRight_Pressed()
+{
+	ActivateObject(RightController);
+}
+
+void ABasePlayerPawn::ActivateRight_Released()
+{
+	DeactivateObject(RightController);
+}
+
+void ABasePlayerPawn::ActivateLeft_Released()
+{
+	DeactivateObject(LeftController);
 }
 
 void ABasePlayerPawn::ActivateObject(ABaseMotionController* MC)

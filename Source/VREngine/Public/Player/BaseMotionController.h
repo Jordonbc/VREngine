@@ -253,29 +253,29 @@ public:
 		void GrabsphereComponentEndOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 private:
-		void SetupRoomScaleOutline();
+		inline void SetupRoomScaleOutline();
 
-		void ClearArc();
+		inline void ClearArc();
 
-		void UpdateArcSpline(bool FoundValidLocation, TArray<FVector> SplinePoints);
+		inline void UpdateArcSpline(bool FoundValidLocation, TArray<FVector> SplinePoints);
 
-		void UpdateArcEndpoint(FVector NewLocation, bool HasValidLocation);
+		inline void UpdateArcEndpoint(FVector NewLocation, bool HasValidLocation);
 
-		void UpdateGhostHand();
+		inline void UpdateGhostHand();
 
-		void UpdateHandPhysics();
+		inline void UpdateHandPhysics();
 
-		void DoOnce_HasGrabbedActorA_Func();
+		inline void DoOnce_HasGrabbedActorA_Func();
 
-		void DoOnce_HasGrabbedActorB_Func();
+		inline void DoOnce_HasGrabbedActorB_Func();
 
-		void DoOnce_HasGrabbedActorA_FuncReset();
+		inline void DoOnce_HasGrabbedActorA_FuncReset();
 
-		void DoOnce_HasGrabbedActorB_FuncReset();
+		inline void DoOnce_HasGrabbedActorB_FuncReset();
 
-		void UpdateRoomScaleOutline();
+		inline void UpdateRoomScaleOutline();
 
-		bool TraceTeleportDest(TArray<FVector> &TracePoints, FVector &NavMeshLocation, FVector &TraceLocation);
+		inline bool TraceTeleportDest(TArray<FVector> &TracePoints, FVector &NavMeshLocation, FVector &TraceLocation);
 
 		bool DoOnce_HasGrabbedActorA = false;
 
