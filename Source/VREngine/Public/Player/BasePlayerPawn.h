@@ -288,7 +288,7 @@ private:
 		/* Updates the box around the player often called the chaperone */
 		inline void UpdateRoomScalePosition();
 
-		// TODO: Find out why this function is not working
+		// TODO [$5fefbd554e7350000773fe22]: Find out why this function is not working
 		// The player cannot change teleport direction with thumbsticks.
 		/* Update the player teleport direction. */
 		inline void UpdateControllerTeleportRotation();
