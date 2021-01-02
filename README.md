@@ -1,8 +1,6 @@
-# <p align="center"><img src=Resources/Icon512Dark.png /></p>
+# <p align="center"><img src="Resources/Icon512Dark.png"/>
 
-[![GitHub release](https://img.shields.io/github/release/Jordonbc/VREngine.svg)](https://GitHub.com/Jordonbc/VREngine/releases/) ![Bitbucket open issues](https://img.shields.io/github/issues-raw/Jordonbc/VREngine) [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![made-with-c++](https://img.shields.io/badge/Made%20With-C%2B%2B-Green)](https://img.shields.io/badge/Made%20With-C%2B%2B-Green)
-
-
+[![GitHub release](https://img.shields.io/github/release/Jordonbc/VREngine.svg)](https://GitHub.com/Jordonbc/VREngine/releases/) ![Bitbucket open issues](https://img.shields.io/github/issues-raw/Jordonbc/VREngine) [![Unreal Engine Version](https://img.shields.io/badge/Latest%20UE4%20Version-4.25-Green)](https://img.shields.io/badge/Latest%20UE4%20Version-4.25-Green) [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![made-with-c++](https://img.shields.io/badge/Made%20With-C%2B%2B-Green)](https://img.shields.io/badge/Made%20With-C%2B%2B-Green)
 
 VREngine is a Unreal Engine plugin that lets you easilly create VR projects. It provides all the necessary ground work so you can focus more on the game rather than creating basic VR things like movement and item pickup.
 
@@ -10,12 +8,23 @@ VREngine is a Unreal Engine plugin that lets you easilly create VR projects. It 
 
 VREngine was developed as a side project for one of my games I made at college. The main idea was to create a plugin containing all the essential tools for me to create more VR games later on without needing to code everything again.
 
-## Features
+## Main Features
 
-- Item Pickup and Drop <p align="center"><img src=Resources/Pickup.gif /></p>
-- **Full body rig (IK) with Valve Index Support** <p align="center"><img src=Resources/BodyTracking.gif /></p>
-- **Fully Customisable** <p align="center"><img src=Resources/Options.jpg /></p>
-- **Full Item Physics** <p align="center"><img src=Resources/Collision.gif /></p>
+<br><br><br>
+<h2 align="center">Item Pickup and Drop</h2>
+<p align="center"><img src=Resources/Pickup.gif /></p>
+<br><br><br>
+
+<h2 align="center">Full body rig (IK) with Valve Index Support</h2>
+<p align="center"><img src=Resources/BodyTracking.gif /></p>
+<br><br><br>
+
+<h2 align="center">Fully Customisable</h2>
+<p align="center"><img src=Resources/Options.jpg /></p>
+<br><br><br>
+
+<h2 align="center">Full Item Physics</h2>
+<p align="center"><img src=Resources/Collision.gif /></p>
 
 ## Code
 
