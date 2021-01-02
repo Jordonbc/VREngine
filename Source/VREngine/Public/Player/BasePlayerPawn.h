@@ -157,6 +157,12 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 		FRotator GetRotationFromInput(float UpAxis, float RightAxis, class ABaseMotionController* MC, float LocalDeadzone = 0.7f);
 
+
+	/*
+	
+		INPUT PROCRSSING
+	
+	*/
 	UFUNCTION()
 		void CapsuleComponentBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
@@ -213,19 +219,17 @@ public:
 
 	/*
 	Get's the trigger value for this specific hand.
+	@param MC - The controller you wish to use.
 	@return A float value between 0 - 1 for the trigger on the controller.
 	*/
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Player Input")
 		float GetTriggerValue(ABaseMotionController* MC);
 
-	/*UFUNCTION(BlueprintCallable, BlueprintPure)
-		class AVRPlayerController* GetPlayerControllerRef();*/
-
 protected:
 	virtual void BeginPlay() override;
 
 	/*
-	Executes the "ExecuteTeleportation function for a given motion controller.
+	Executes the "ExecuteTeleportation" function for a given motion controller.
 	@param MC - The controller you wish to use.
 	*/
 	UFUNCTION(BlueprintCallable)
@@ -250,12 +254,20 @@ private:
 
 		inline TArray<class AActor*> GetAllActorsFromActor(AActor* Actor);
 
+		/* This uses the camera and  both motion controllers to approximate the general player direction. Easy to implement but doesn't work very well. */
 		inline float TwoPointTracking();
 
+		/* This function basically line traces the players feet so the feet always stay on the ground and knees bend.
+		This works really well but can be somewhat expensive on lower end systems.
+		*/
 		inline void IKFootTick();
 
+		/* This function is responsible for updating the players arms to always be connected to the hand.
+		This has to be done since there is no way to map SteamVR controller skeleton to a UE4 skeleton, so we just use a second actor and point the arms in the direction.
+		*/
 		inline void UpdateHandIK();
 
+		/* This spawns the player hands and is called once for each hand. */
 		inline class ABaseMotionController* SpawnMotionController(EControllerHand HandType);
 
 		/*
@@ -272,14 +284,22 @@ private:
 		*/
 		inline float IKFootTrace(FName SocketName, float TraceDistance);
 
+
+		/* Updates the box around the player often called the chaperone */
 		inline void UpdateRoomScalePosition();
 
+		// TODO: Find out why this function is not working
+		// The player cannot change teleport direction with thumbsticks.
+		/* Update the player teleport direction. */
 		inline void UpdateControllerTeleportRotation();
 
 		/*
 		Checks to see if anything is colliding with the character and disables movement.
 		*/
 		inline void CheckCharacterPosition();
+
+
+		// I still don't know if this runs on a different thread to speed up tick. None of these need to happen on tick thread but still need to be updated.
 
 		/* Timer function handler for feetIK.*/
 		FTimerHandle IKFootTickFunc;
