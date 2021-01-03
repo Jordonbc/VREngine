@@ -453,8 +453,6 @@ void ABaseMotionController::HandComponentHit(UPrimitiveComponent* HitComp, AActo
 {
 	if (IsValid(OtherActor))
 	{
-		//SW_LOG("HIT!!!!");
-		//SW_LOG(OtherActor->GetName());
 		TSubclassOf<UDamageType> ValidDamageTypeClass = TSubclassOf<UDamageType>(UDamageType::StaticClass());
 		FDamageEvent DamageEvent(ValidDamageTypeClass);
 
@@ -471,7 +469,6 @@ void ABaseMotionController::HandComponentHit(UPrimitiveComponent* HitComp, AActo
 
 void ABaseMotionController::GrabsphereComponentBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	//UE_LOG(MotionController, Verbose, TEXT("Detected object: %s"), *OtherComp->GetName());
 	if (OtherActor != (AActor*)Player || OtherActor != this)
 	{
 		OverlappingComponents.Add(OtherComp);
