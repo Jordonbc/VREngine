@@ -571,6 +571,7 @@ void ABaseMotionController::UpdateArcEndpoint(FVector NewLocation, bool HasValid
 
 void ABaseMotionController::UpdateGhostHand()
 {
+	//The same effect can be achieved by using Physics Constraints
 	FVector LocalCurrentPosition = HandMeshComponent->GetComponentLocation();
 
 	Velocity = (LastFramePosition.Size() - LocalCurrentPosition.Size());
