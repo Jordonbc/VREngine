@@ -361,6 +361,16 @@ void ABasePlayerPawn::ExecuteTeleportation(ABaseMotionController* MC)
 			APlayerCameraManager* CameraManager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
 			CameraManager->StartCameraFade(0.0f, 1.0f, PlayerController->FadeDuration, FLinearColor(0, 0, 0, 1));
 
+			// Updates HandMeshComponent after a teleport
+			switch (PlayerController->ControllerPhysics)
+			{
+			case EControllerPhysicsType::PhysicsConstraint:
+				MC->UpdateHandPhysics();
+				break;
+			default:
+				break;
+			}
+
 			TeleportMotionController = MC;
 			GetWorldTimerManager().SetTimer(TeleportTimerHandle, this, &ABasePlayerPawn::PostPlayerTeleportation, PlayerController->FadeDuration, false);
 

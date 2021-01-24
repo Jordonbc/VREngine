@@ -19,6 +19,9 @@ public:
 	// Sets default values for this actor's properties
 	ABaseMotionController();
 
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Components")
+		class UPhysicsConstraintComponent* PhysicsConstraint;
+
 	/* Component for the bound of the play area.*/
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Components")
 		class USteamVRChaperoneComponent* SteamVRChaperoneComp;
@@ -235,6 +238,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Movement | Teleporting")
 		void DisableTeleporter();
 
+	inline void UpdateHandPhysics();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -262,8 +267,6 @@ private:
 		inline void UpdateArcEndpoint(FVector NewLocation, bool HasValidLocation);
 
 		inline void UpdateGhostHand();
-
-		inline void UpdateHandPhysics();
 
 		inline void DoOnce_HasGrabbedActorA_Func();
 

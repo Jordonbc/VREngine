@@ -32,7 +32,7 @@ public:
 
 	/* Change how to handle controller collision*/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Motion Controller")
-		EControllerPhysicsType ControllerPhysics = EControllerPhysicsType::Stop;
+		EControllerPhysicsType ControllerPhysics = EControllerPhysicsType::PhysicsConstraint;
 
 	/* True if the player is currently teleporting.*/
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement | Teleporting")

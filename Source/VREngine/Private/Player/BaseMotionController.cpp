@@ -31,6 +31,7 @@
 #include "Player/VRPlayerController.h"
 #include "HeadMountedDisplay/Public/HeadMountedDisplayFunctionLibrary.h"
 #include "SteamVRChaperoneComponent.h"
+#include "PhysicsEngine/PhysicsConstraintComponent.h"
 
 DEFINE_LOG_CATEGORY_STATIC(MotionController, All, All)
 
@@ -154,6 +155,22 @@ ABaseMotionController::ABaseMotionController()
 	ArcDirectionComp->ArrowSize = 0.2f;
 	ArcDirectionComp->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility, ECollisionResponse::ECR_Ignore);
 	ArcDirectionComp->SetMobility(EComponentMobility::Movable);
+
+	PhysicsConstraint = CreateDefaultSubobject<UPhysicsConstraintComponent>(TEXT("PhysicsConstraint"));
+	PhysicsConstraint->SetupAttachment(GhostHandMeshComponent);
+	PhysicsConstraint->SetDisableCollision(true);
+	PhysicsConstraint->ConstraintInstance.ProfileInstance.ProjectionLinearTolerance = 2000.0f;
+	PhysicsConstraint->ConstraintInstance.ProfileInstance.LinearLimit.XMotion = ELinearConstraintMotion::LCM_Free;
+	PhysicsConstraint->ConstraintInstance.ProfileInstance.LinearLimit.YMotion = ELinearConstraintMotion::LCM_Free;
+	PhysicsConstraint->ConstraintInstance.ProfileInstance.LinearLimit.ZMotion = ELinearConstraintMotion::LCM_Free;
+	PhysicsConstraint->SetLinearPositionDrive(true, true, true);
+	PhysicsConstraint->SetLinearDriveParams(5000.0f, 1500.0f, 0.0f);
+	PhysicsConstraint->SetAngularDriveMode(EAngularDriveMode::TwistAndSwing);
+	PhysicsConstraint->SetAngularOrientationDrive(true, true);
+	PhysicsConstraint->SetAngularVelocityDrive(true, true);
+	PhysicsConstraint->SetAngularDriveParams(500.0f, 50.0f, 0.0f);
+	PhysicsConstraint->ConstraintInstance.SetAngularSwing1Motion(EAngularConstraintMotion::ACM_Locked);
+	PhysicsConstraint->ConstraintInstance.SetAngularSwing2Motion(EAngularConstraintMotion::ACM_Locked);
 
 
 	static ConstructorHelpers::FObjectFinder<USkeletalMesh>HandMeshObject(TEXT("SkeletalMesh'/VREngine/Meshes/Mannequin/Character/Mesh/MannequinHand_Right.MannequinHand_Right'"));
@@ -358,6 +375,21 @@ void ABaseMotionController::BeginPlay()
 		GrabSphereComponent->AddWorldRotation(FRotator(-90, 0, 180));
 		break;
 
+	default:
+		break;
+	}
+
+	switch (PlayerController->ControllerPhysics)
+	{
+	case EControllerPhysicsType::PhysicsConstraint:
+		HandMeshComponent->AttachToComponent(GhostHandMeshComponent, 
+			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, EAttachmentRule::SnapToTarget, EAttachmentRule::KeepWorld, true));
+		HandMeshComponent->SetEnableGravity(false);
+		HandMeshComponent->SetNotifyRigidBodyCollision(true);
+		PhysicsConstraint->SetConstrainedComponents(GhostHandMeshComponent, FName("None"), HandMeshComponent, FName("None"));
+		HandMeshComponent->SetSimulatePhysics(true);
+		UpdateHandPhysics();
+		break;
 	default:
 		break;
 	}

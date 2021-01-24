@@ -54,7 +54,9 @@ enum class EControllerSelection : uint8
 UENUM(BlueprintType)
 enum class EControllerPhysicsType : uint8
 {
-	Stop 	UMETA(DisplayName = "Stop"),
-	Physics 	UMETA(DisplayName = "Physics"),
-	NoCollision 	UMETA(DisplayName = "No Collision"),
+	Stop 	UMETA(DisplayName = "Stop", ToolTip = "Legacy VREngine setting, most tested but expensive and runs on tick!"),
+	Physics 	UMETA(DisplayName = "Physics", ToolTip = "Hand physics handled by SetWorldLocationAndRotation function. Doesn't always work!"),
+	NoCollision 	UMETA(DisplayName = "No Collision", ToolTip = "The traditional VR experience (hand goes through objects)."),
+	PhysicsConstraint 	UMETA(DisplayName = "PhysicsConstraint", ToolTip = "BETA! Uses optimized physics constraints to handle hand physics."),
+	Custom 	UMETA(DisplayName = "Custom", ToolTip = "Tells VR Engine to not handle hand movement. Use your own function to control HandMeshComponent!"),
 };
