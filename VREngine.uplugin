@@ -1,0 +1,32 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.1.0 Beta",
+	"FriendlyName": "VREngine",
+	"Description": "This plugin provides all the basic VR functionality",
+	"Category": "Virtual Reality",
+	"CreatedBy": "Jordon Brooks",
+	"CreatedByURL": "jordonbc.github.io",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": true,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "VREngine",
+			"Type": "Runtime",
+			"LoadingPhase": "PreLoadingScreen"
+		}
+	],
+	"Plugins": [
+
+	{
+			"Name": "SteamVR",
+			"Enabled": true
+	}
+
+	]
+}
