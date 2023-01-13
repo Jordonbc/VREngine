@@ -4,7 +4,7 @@
 
 
 
-VREngine is a Unreal Engine plugin that lets you easilly create VR projects. It provides all the necessary ground work so you can focus more on the game rather than creating basic VR things like movement and item pickup.
+VREngine is a Unreal Engine plugin that lets you easily create VR projects. It provides all the necessary ground work so you can focus more on the game rather than creating basic VR things like movement and item pickup.
 
 ## Motivation
 
@@ -35,24 +35,24 @@ An example project for Unreal Engine can be found [here](https://github.com/Jord
 
 Everything in the plugin is written in C++, no blueprints here.
 
-You can use blueprints if you dont like coding in C++ the functions will be listed on the wiki.
+You can use blueprints if you don't like coding in C++ the functions will be listed on the wiki.
 
 ## Tech/Frameworks used
 
 Built with:
 
 - Unreal Engine
-- SteamVR
+- OpenXR
 
 ## Installation
 
 ### Using precompiled dlls
 
-Once you download the zip file extract it and either place the extracted folder in the Plguins folder of your game or in the engine plugin folder for global use.
+Once you download the zip file extract it and either place the extracted folder in the Plugins folder of your game or in the engine plugin folder for global use.
 
 ### Building from Source
 
-If you build VREngine from souce you must place this repository in a folder called Plugins in the base directory of your game where the .uproject lives e.g. mygame/Plugins/VREngine
+If you build VREngine from source you must place this repository in a folder called Plugins in the base directory of your game where the .uproject lives e.g. mygame/Plugins/VREngine
 
 ## API Reference
 
