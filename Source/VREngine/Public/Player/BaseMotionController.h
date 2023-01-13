@@ -23,7 +23,7 @@ public:
 
 	/* Component for the bound of the play area.*/
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Components")
-		class USteamVRChaperoneComponent* SteamVRChaperoneComp;
+		class UBoxComponent* SteamVRChaperoneComp;
 
 	/* Component for the direction of the teleport arc.*/
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Components")

@@ -2,8 +2,8 @@
 
 #include "Player/BaseMotionController.h"
 
-#include "SteamVRChaperoneComponent.h"
 #include "Components/ArrowComponent.h"
+#include "Components/BoxComponent.h"
 #include "Components/SphereComponent.h"
 #include "Components/SplineComponent.h"
 #include "Engine/DamageEvents.h"
@@ -42,7 +42,7 @@ ABaseMotionController::ABaseMotionController()
 	WristComponent = CreateDefaultSubobject<USphereComponent>(TEXT("Wrist"));
 	WristComponent->SetupAttachment(HandMeshComponent);
 
-	SteamVRChaperoneComp = CreateDefaultSubobject<USteamVRChaperoneComponent>(TEXT("SteamVRChaperone"));
+	SteamVRChaperoneComp = CreateDefaultSubobject<UBoxComponent>(TEXT("SteamVRChaperone"));
 
 	AttachComponent = CreateDefaultSubobject<USphereComponent>(TEXT("AttachComponent"));
 	AttachComponent->SetupAttachment(HandMeshComponent);
@@ -384,22 +384,11 @@ void ABaseMotionController::HandComponentHit(UPrimitiveComponent* HitComp, AActo
 
 void ABaseMotionController::SetupRoomScaleOutline()
 {
-	FVector OutRectCenter;
-	FRotator OutRectRotation;
-	float OutX;
-	float OutY;
-	UKismetMathLibrary::MinAreaRectangle(GetWorld(), SteamVRChaperoneComp->GetBounds(),FVector(0.0f, 0.0f, 1.0f),
-											OutRectCenter, OutRectRotation, OutX, OutY);
+	FVector2D OutRectCenter;
+	FTransform OutRectTransform;
+	UHeadMountedDisplayFunctionLibrary::GetPlayAreaRect(OutRectTransform, OutRectCenter);
 
-	bIsRoomScale = UKismetMathLibrary::BooleanNAND(UKismetMathLibrary::NearlyEqual_FloatFloat(OutX, 100),
-													UKismetMathLibrary::NearlyEqual_FloatFloat(OutY, 100));
-
-	if (bIsRoomScale)
-	{
-		constexpr float ChaperoneMeshHeight = 70.0f;
-		RoomScaleMeshComp->SetWorldScale3D(FVector(OutX, OutY, ChaperoneMeshHeight));
-		RoomScaleMeshComp->SetWorldRotation(OutRectRotation);
-	}
+	SteamVRChaperoneComp->SetWorldTransform(OutRectTransform);
 
 }
 

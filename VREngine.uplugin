@@ -24,7 +24,7 @@
 	"Plugins": [
 
 	{
-			"Name": "SteamVR",
+			"Name": "OpenXR",
 			"Enabled": true
 	}
 

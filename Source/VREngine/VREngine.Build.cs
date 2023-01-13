@@ -53,7 +53,7 @@ public class VREngine : ModuleRules
 				"Slate",
 				"SlateCore",
 				"HeadMountedDisplay",
-				"SteamVR"
+				"OpenXR"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
